@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: "queue-pro-db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD}"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+  
+  backend:
+    build:
+      context: ./backend/
+      dockerfile: ./Queue-Pro.API/Dockerfile
+      
+    environment:
+      - ConnectionStrings__AppDbContext=Host=db;Port=5432;Database=queue-pro-db;Username=postgres;Password=1464
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+
+volumes:
+  postgres-data:
