@@ -2,7 +2,7 @@ namespace Queue_Pro.Infrastructure.Entities;
 
 public class UserQueueEntity
 {
-    public Guid Id { get; }
+    public Guid Id { get; set; }
     
     public UserEntity Headman { get; set; }
     

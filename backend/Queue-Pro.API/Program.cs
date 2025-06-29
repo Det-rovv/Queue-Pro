@@ -1,20 +1,31 @@
 using Microsoft.EntityFrameworkCore;
 using Queue_Pro.Application;
+using Queue_Pro.Application.Services;
+using Queue_Pro.Application.Settings;
 using Queue_Pro.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
+    
 builder.Services
+    .AddScoped<JwtService>()
+    .AddOpenApi()
     .AddProblemDetails()
+    .AddAuth(configuration)
     .AddInfrastructure(configuration)
     .AddApplication()
     .AddControllers();
 
+builder.Services
+    .Configure<AuthSettings>(configuration.GetSection("AuthSettings"));
+
 var app = builder.Build();
 
-app.UseExceptionHandler();
-app.UseStatusCodePages();
+app.UseExceptionHandler()
+    .UseStatusCodePages()
+    .UseAuthentication()
+    .UseAuthorization();
 
 using (var scope = app.Services.CreateScope())
 {
@@ -31,6 +42,16 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Ошибка при применении миграций: {ex.Message}");
         throw;
     }
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "OpenAPI V1");
+    });
 }
 
 app.MapControllers();

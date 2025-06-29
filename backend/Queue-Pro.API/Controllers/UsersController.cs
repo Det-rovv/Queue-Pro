@@ -1,7 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.AspNetCore.Mvc;
 using Queue_Pro.API.Contracts;
+using Queue_Pro.Application.Services;
 using Queue_Pro.Domain.Abstractions;
 using Queue_Pro.Domain.Models;
+using LoginRequest = Queue_Pro.API.Contracts.LoginRequest;
 
 namespace Queue_Pro.API.Controllers;
 
@@ -17,7 +21,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<IActionResult> RegisterUser([FromBody] UsersRequest request)
+    public async Task<ActionResult<Guid>> RegisterUser([FromBody] UserRequest request)
     {
         var user = new User()
         {
@@ -32,17 +36,52 @@ public class UsersController : ControllerBase
         return Ok(await _usersService.RegisterUser(user));
     }
     
-    [HttpGet]
-    public async Task<IActionResult> GetAllUsers()
+    [HttpPost("login")]
+    public async Task<ActionResult<string>> Login([FromBody] LoginRequest request)
     {
-        return Ok(await _usersService.GetAllUsers());
+        var token = await _usersService.Login(request.Username, request.Password);
+        return (token is not null) ? Ok(token) : Unauthorized();
+    }
+    
+    [HttpGet]
+    [Authorize]
+    public async Task<ActionResult<List<UserResponse>>> GetAllUsers()
+    {
+        return Ok((await _usersService.GetAllUsers())
+            .Select(u => new UserResponse(u.Id, u.Username, u.FirstName, u.LastName, u.Surname)));
     }
 
     [HttpGet("{id}")]
-    public async Task<IActionResult> GetUserById(Guid id)
+    [Authorize]
+    public async Task<ActionResult<UserResponse?>> GetUserById([FromRoute] Guid id)
     {
         var user = await _usersService.GetUserById(id);
+        
         if (user is null) return NotFound();
-        return Ok(user);
+        
+        return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
+    }
+
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<ActionResult<UserResponse?>> UpdateUser([FromBody] UserRequest request, [FromRoute] Guid id)
+    {
+        var user = await _usersService.UpdateUser(id, request.FirstName, request.LastName, request.Surname);
+        
+        if (user is null) return NotFound();
+
+        return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
+    }
+    
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<ActionResult<UserResponse?>> DeleteUser([FromRoute] Guid id)
+    {
+        var user = await _usersService.DeleteUserById(id);
+        
+        if (user is null) return NotFound();
+        
+        return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
     }
 }
