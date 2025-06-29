@@ -21,7 +21,7 @@ public class UsersController : ControllerBase
     }
 
     [HttpPost]
-    public async Task<ActionResult<Guid>> RegisterUser([FromBody] UsersRequest request)
+    public async Task<ActionResult<Guid>> RegisterUser([FromBody] UserRequest request)
     {
         var user = new User()
         {
@@ -40,7 +40,7 @@ public class UsersController : ControllerBase
     public async Task<ActionResult<string>> Login([FromBody] LoginRequest request)
     {
         var token = await _usersService.Login(request.Username, request.Password);
-        return (token is not null) ? Ok(token) : BadRequest();
+        return (token is not null) ? Ok(token) : Unauthorized();
     }
     
     [HttpGet]
@@ -53,13 +53,35 @@ public class UsersController : ControllerBase
 
     [HttpGet("{id}")]
     [Authorize]
-    public async Task<ActionResult<UserResponse?>> GetUserById(Guid id)
+    public async Task<ActionResult<UserResponse?>> GetUserById([FromRoute] Guid id)
     {
         var user = await _usersService.GetUserById(id);
+        
         if (user is null) return NotFound();
         
         return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
     }
 
+    [HttpPut("{id}")]
+    [Authorize]
+    public async Task<ActionResult<UserResponse?>> UpdateUser([FromBody] UserRequest request, [FromRoute] Guid id)
+    {
+        var user = await _usersService.UpdateUser(id, request.FirstName, request.LastName, request.Surname);
+        
+        if (user is null) return NotFound();
 
+        return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
+    }
+    
+
+    [HttpDelete("{id}")]
+    [Authorize]
+    public async Task<ActionResult<UserResponse?>> DeleteUser([FromRoute] Guid id)
+    {
+        var user = await _usersService.DeleteUserById(id);
+        
+        if (user is null) return NotFound();
+        
+        return Ok(new UserResponse(user.Id, user.Username, user.FirstName, user.LastName, user.Surname));
+    }
 }

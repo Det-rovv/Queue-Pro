@@ -28,7 +28,17 @@ public class UsersService(IUsersRepository _usersRepository, JwtService _jwtServ
     {
         return await _usersRepository.GetAll();
     }
+    
+    public Task<User?> DeleteUserById(Guid userId)
+    {
+        return _usersRepository.DeleteById(userId);
+    }
 
+    public Task<User?> UpdateUser(Guid userId, string firstName, string lastName, string sureName)
+    {
+        return _usersRepository.Update(userId, firstName, lastName, sureName);
+    }
+    
     public async Task<string?> Login(string username, string password)
     {
         var user = await GetUserByUsername(username);

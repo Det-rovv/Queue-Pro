@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "A4OEhiF/+14=",
+  "dgSpecHash": "J/3NVgCnkH0=",
   "success": true,
   "projectFilePath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.API/Queue-Pro.API.csproj",
   "expectedPackageFiles": [
@@ -88,7 +88,7 @@
     "/home/erol/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
     "/home/erol/.nuget/packages/system.text.json/9.0.6/system.text.json.9.0.6.nupkg.sha512",
     "/home/erol/.nuget/packages/system.threading.channels/7.0.0/system.threading.channels.7.0.0.nupkg.sha512",
-    "/home/erol/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
+    "/home/erol/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.5/microsoft.aspnetcore.app.ref.9.0.5.nupkg.sha512"
   ],
   "logs": []
 }

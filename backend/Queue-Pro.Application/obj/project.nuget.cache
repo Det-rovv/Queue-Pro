@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "oOpg4GT7S6E=",
+  "dgSpecHash": "T2rKZJgP4yc=",
   "success": true,
   "projectFilePath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Application/Queue-Pro.Application.csproj",
   "expectedPackageFiles": [
@@ -59,7 +59,7 @@
     "/home/erol/.nuget/packages/system.security.cryptography.xml/8.0.2/system.security.cryptography.xml.8.0.2.nupkg.sha512",
     "/home/erol/.nuget/packages/system.security.principal.windows/5.0.0/system.security.principal.windows.5.0.0.nupkg.sha512",
     "/home/erol/.nuget/packages/system.text.encodings.web/8.0.0/system.text.encodings.web.8.0.0.nupkg.sha512",
-    "/home/erol/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
+    "/home/erol/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.5/microsoft.aspnetcore.app.ref.9.0.5.nupkg.sha512"
   ],
   "logs": []
 }
