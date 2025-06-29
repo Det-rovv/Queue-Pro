@@ -16,6 +16,7 @@ services:
       dockerfile: ./Queue-Pro.API/Dockerfile
       
     environment:
+      - ASPNETCORE_ENVIRONMENT=Development
       - ConnectionStrings__AppDbContext=Host=db;Port=5432;Database=queue-pro-db;Username=postgres;Password=1464
     ports:
       - 8080:8080

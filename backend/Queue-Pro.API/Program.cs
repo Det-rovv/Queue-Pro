@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services
+    .AddOpenApi()
     .AddProblemDetails()
     .AddInfrastructure(configuration)
     .AddApplication()
@@ -31,6 +32,16 @@ using (var scope = app.Services.CreateScope())
         Console.WriteLine($"Ошибка при применении миграций: {ex.Message}");
         throw;
     }
+}
+
+if (app.Environment.IsDevelopment())
+{
+    app.MapOpenApi();
+    
+    app.UseSwaggerUI(options =>
+    {
+        options.SwaggerEndpoint("/openapi/v1.json", "OpenAPI V1");
+    });
 }
 
 app.MapControllers();
