@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "NDxef5sl/QU=",
+  "success": true,
+  "projectFilePath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj",
+  "expectedPackageFiles": [
+    "/home/erol/.nuget/packages/microsoft.aspnetcore.app.ref/9.0.4/microsoft.aspnetcore.app.ref.9.0.4.nupkg.sha512"
+  ],
+  "logs": []
+}
