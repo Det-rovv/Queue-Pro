@@ -4,3 +4,9 @@
 - [Технологии](https://ih_tam_net)
 - [Дурак онлайн](https://razlozhi.ru/durak)
 - [Команда проекта](https://fsin.gov.ru/criminal/)
+## Технологии
+- TypeScript
+- React
+- ASP.NET jopa
+## Использование
+`Enter`
