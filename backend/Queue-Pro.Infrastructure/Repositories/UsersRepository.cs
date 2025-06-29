@@ -43,6 +43,26 @@ public class UsersRepository(AppDbContext _dbContext) : IUsersRepository
         return user;
     }
 
+    public async Task<User?> GetByUsername(string username)
+    {
+        var userEntity = await _dbContext.Users.AsNoTracking()
+            .FirstOrDefaultAsync(u => u.Username == username);
+        
+        if (userEntity is null) return null;
+
+        var user = new User()
+        {
+            Id = userEntity.Id,
+            Username = userEntity.Username,
+            FirstName = userEntity.FirstName,
+            LastName = userEntity.LastName,
+            Surname = userEntity.Surname,
+            Password = userEntity.PasswordHash,
+        };
+        
+        return user;
+    }
+
     public async Task<List<User>> GetAll()
     {
         return await _dbContext.Users.Select(ue => new User()

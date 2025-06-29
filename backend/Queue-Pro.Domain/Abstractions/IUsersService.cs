@@ -7,6 +7,12 @@ public interface IUsersService
     Task<Guid> RegisterUser(User user);
     
     Task<User?> GetUserById(Guid id);
+
+    Task<User?> GetUserByUsername(string username);
+
+    Task<string?> Login(string username, string password);
+
+    Task<bool> VerifyPassword(User user, string password);
     
     Task<List<User>> GetAllUsers();
 }

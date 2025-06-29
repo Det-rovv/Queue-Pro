@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Queue-Pro.Domain")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d7bb6f4e79d0c9eaf0529e97123ec4f29420c2f")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+023988efbdf04d2397010093659178b686889ac3")]
 [assembly: System.Reflection.AssemblyProductAttribute("Queue-Pro.Domain")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Queue-Pro.Domain")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
