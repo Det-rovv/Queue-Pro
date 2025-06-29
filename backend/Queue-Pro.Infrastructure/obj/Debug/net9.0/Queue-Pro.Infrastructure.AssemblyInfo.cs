@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Queue-Pro.Infrastructure")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4734e9d257cfa1e3d9d1ca149b2868f31c0ea4a3")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9d2076f5a7231918e015a3f4152b12cd1ebf4bea")]
 [assembly: System.Reflection.AssemblyProductAttribute("Queue-Pro.Infrastructure")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Queue-Pro.Infrastructure")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

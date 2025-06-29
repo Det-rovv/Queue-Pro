@@ -4,14 +4,14 @@
     "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj": {}
   },
   "projects": {
-    "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj": {
+    "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/Queue-Pro.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj",
-        "projectName": "Queue-Pro.Infrastructure",
-        "projectPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj",
+        "projectUniqueName": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/Queue-Pro.Domain.csproj",
+        "projectName": "Queue-Pro.Domain",
+        "projectPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/Queue-Pro.Domain.csproj",
         "packagesPath": "/home/erol/.nuget/packages/",
-        "outputPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/obj/",
+        "outputPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/erol/.nuget/NuGet/NuGet.Config"
@@ -43,6 +43,85 @@
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[9.0.4, 9.0.4]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/9.0.105/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj",
+        "projectName": "Queue-Pro.Infrastructure",
+        "projectPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/Queue-Pro.Infrastructure.csproj",
+        "packagesPath": "/home/erol/.nuget/packages/",
+        "outputPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/erol/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/Queue-Pro.Domain.csproj": {
+                "projectPath": "/home/erol/Desktop/Папка/Разное/code/Queue-Pro/backend/Queue-Pro.Domain/Queue-Pro.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.100"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Npgsql.EntityFrameworkCore.PostgreSQL": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
