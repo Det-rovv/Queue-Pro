@@ -1,0 +1,255 @@
+/* Глобальные стили */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  min-height: 100vh;
+  color: #333;
+}
+
+/* Структура страницы */
+.top {
+  height: 120px;
+  margin: 0;
+  padding-top: 0;
+}
+
+.orange_thing {
+  background: linear-gradient(135deg, #ea985d 0%, #c88a5a 100%);
+  margin-top: 20px;
+  height: 50px;
+  width: 100%;
+}
+
+.logo {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 24px;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100%;
+  margin-left: 54px;
+  color: white;
+  width:100px;
+}
+
+.logo2 {
+  height: 45px;
+}
+
+.main_content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Карточки */
+.card {
+    background: rgba(193, 193, 193, 0.501);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 2rem;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+}
+
+.className_selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.className_card {
+  background: linear-gradient(135deg, #fec74f 0%, #fed800 100%);
+  color: white;
+  padding: 1.5rem;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.className_card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(79, 172, 254, 0.3);
+}
+
+.className_card.active {
+  background: linear-gradient(135deg, #f75858 0%, #d68f43 100%);
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+}
+
+.className_name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.className_info {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Очередь */
+.queue_container {
+  position: relative;
+}
+
+.queue_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.queue_title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.queue_status {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.status_open {
+  background: linear-gradient(135deg, #4ade80, #22c55e);
+  color: white;
+}
+
+.status_closed {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: white;
+}
+
+.queue_list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.queue_item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+  border-radius: 12px;
+  border-left: 4px solid #667eea;
+  transition: all 0.3s ease;
+}
+
+.queue_item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.queue_item.first {
+  background: linear-gradient(135deg, #dcfce7, #bbf7d0);
+  border-left-color: #10b981;
+}
+
+.queue_item.current_user {
+  background: linear-gradient(135deg, #fef3c7, #fde68a);
+  border-left-color: #f59e0b;
+}
+
+.queue_position {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #667eea;
+  min-width: 40px;
+}
+
+.student_info {
+  flex: 1;
+  margin-left: 1rem;
+}
+
+.student_name {
+  font-weight: 600;
+  color: #374151;
+}
+
+.join_time {
+  font-size: 0.8rem;
+  color: #6b7280;
+  margin-top: 0.2rem;
+}
+
+.queue_actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+/* Кнопки */
+.btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn_secondary {
+  background: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+  border: 1px solid rgba(107, 114, 128, 0.2);
+}
+
+.btn_secondary:hover {
+  background: rgba(107, 114, 128, 0.2);
+}
+
+.btn_danger {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+}
+
+.btn_danger:hover {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+}
+
+/* Админ-панель */
+.admin_controls {
+  border-top: 2px solid #e5e7eb;
+  padding-top: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.admin_title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #ef4444;
+  margin-bottom: 1rem;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+  .className_selector {
+    grid-template-columns: 1fr;
+  }
+
+  .queue_header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}
